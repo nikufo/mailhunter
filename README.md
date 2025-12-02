@@ -6,7 +6,7 @@
 
 ---
 
-# [📥 DOWNLOAD NOW (CLICK HERE)](https://github.com/YOUR_USERNAME/REPO_NAME/archive/refs/heads/main.zip)
+# [📥 DOWNLOAD NOW (CLICK HERE)](https://github.com/nikufo/mailhunter/archive/refs/heads/main.zip)
 *(Click the text above to download the source code zip file)*
 
 ---
