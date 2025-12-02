@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailHunter</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <h1>MailHunter</h1>
+      </div>
+      <p class="subtitle">Find emails from social platforms.</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="scrap">
+        Scrap
+      </button>
+      <button class="tab-btn" data-tab="credits">
+        Credits
+      </button>
+      <button class="tab-btn" data-tab="offers">
+        Offers
+      </button>
+      <button class="tab-btn" data-tab="about">
+        About
+      </button>
+    </nav>
+
+    <main>
+      <!-- SCRAP TAB -->
+      <div id="scrap" class="tab-content active">
+        <div class="form-group">
+          <label for="keyword">KEYWORD:</label>
+          <input type="text" id="keyword" placeholder="Doctor" value="Doctor">
+        </div>
+
+        <div class="form-group">
+          <label for="location">LOCATION:</label>
+          <input type="text" id="location" placeholder="United States" value="United States">
+        </div>
+
+        <div class="form-group">
+          <label for="platform">PLATFORM:</label>
+          <div class="select-wrapper">
+            <select id="platform">
+              <option value="linkedin.com">LinkedIn</option>
+              <option value="facebook.com">Facebook</option>
+              <option value="twitter.com">X (Twitter)</option>
+              <option value="instagram.com">Instagram</option>
+              <option value="tiktok.com">TikTok</option>
+              <option value="youtube.com">YouTube</option>
+              <option value="pinterest.com">Pinterest</option>
+              <option value="reddit.com">Reddit</option>
+              <option value="snapchat.com">Snapchat</option>
+              <option value="tumblr.com">Tumblr</option>
+              <option value="quora.com">Quora</option>
+              <option value="discord.com">Discord</option>
+              <option value="telegram.org">Telegram</option>
+              <option value="whatsapp.com">WhatsApp</option>
+              <option value="medium.com">Medium</option>
+              <option value="github.com">GitHub</option>
+              <option value="stackoverflow.com">Stack Overflow</option>
+              <option value="behance.net">Behance</option>
+              <option value="dribbble.com">Dribbble</option>
+              <option value="twitch.tv">Twitch</option>
+              <option value="flickr.com">Flickr</option>
+              <option value="soundcloud.com">SoundCloud</option>
+              <option value="vimeo.com">Vimeo</option>
+              <option value="vk.com">VK</option>
+              <option value="weibo.com">Weibo</option>
+              <option value="xing.com">Xing</option>
+              <option value="slack.com">Slack</option>
+              <option value="trello.com">Trello</option>
+              <option value="asana.com">Asana</option>
+              <option value="airbnb.com">Airbnb</option>
+              <option value="tripadvisor.com">TripAdvisor</option>
+              <option value="yelp.com">Yelp</option>
+              <option value="booking.com">Booking.com</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email-domain">EMAIL DOMAIN:</label>
+          <div class="select-wrapper">
+            <select id="email-domain">
+              <option value="@gmail.com">@gmail.com</option>
+              <option value="@yahoo.com">@yahoo.com</option>
+              <option value="@hotmail.com">@hotmail.com</option>
+              <option value="@outlook.com">@outlook.com</option>
+              <option value="@icloud.com">@icloud.com</option>
+              <option value="@aol.com">@aol.com</option>
+              <option value="@protonmail.com">@protonmail.com</option>
+              <option value="@zoho.com">@zoho.com</option>
+              <option value="@yandex.com">@yandex.com</option>
+              <option value="@mail.com">@mail.com</option>
+              <option value="@gmx.com">@gmx.com</option>
+              <option value="@live.com">@live.com</option>
+              <option value="@msn.com">@msn.com</option>
+              <option value="@me.com">@me.com</option>
+              <option value="@mac.com">@mac.com</option>
+              <option value="@inbox.com">@inbox.com</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="start-stop-btn" class="btn-primary">
+            Start
+          </button>
+          <button id="pause-btn" class="btn-secondary hidden">
+            Pause
+          </button>
+        </div>
+
+        <div id="status-bar" class="status-bar hidden">
+          <div class="status-glow"></div>
+          <span id="status-text">Found 0 emails across 0 pages</span>
+        </div>
+
+        <div class="results-section">
+          <h3>
+            Collected Results
+          </h3>
+
+          <div class="result-card">
+            <div class="count-info">
+              <span class="label">TOTAL EMAILS</span>
+              <span id="total-emails" class="count">0</span>
+            </div>
+          </div>
+
+          <button id="download-btn" class="btn-success">
+            Download CSV
+          </button>
+
+          <button id="clear-btn" class="btn-danger-outline">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <!-- CREDITS TAB -->
+      <div id="credits" class="tab-content">
+        <div class="credits-container">
+          <div class="balance-card">
+            <h2>Available Credits</h2>
+            <div class="balance-display">
+              <span id="credit-balance">0</span>
+              <span class="unit">Credits</span>
+            </div>
+          </div>
+
+          <div class="token-section">
+            <label for="token-input">CLAIM TOKEN:</label>
+            <input type="text" id="token-input" placeholder="Enter your token to claim credits">
+            <button id="claim-btn" class="btn-purple">
+              Claim Credits
+            </button>
+          </div>
+
+          <div class="info-text">
+            <p>ℹ️ 1 Credit = 1 Scraping Session</p>
+            <p>❓ Need more credits? <a href="https://wa.link/bqsxqb" target="_blank" id="purchase-link">Purchase
+                here</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OFFERS TAB -->
+      <div id="offers" class="tab-content">
+        <div class="offers-container">
+          <div class="offer-header">
+            <h2>Special Offers</h2>
+            <p>Get free credits by completing these simple tasks! (Once per user)</p>
+          </div>
+
+          <div class="offer-card">
+            <div class="offer-icon youtube"></div>
+            <h3>Subscribe to YouTube</h3>
+            <div class="reward-badge">50 Credits</div>
+            <p>Subscribe to my YouTube channel and get 50 free credits!</p>
+            <div class="how-to">
+              <h4>How to claim:</h4>
+              <ol>
+                <li>Subscribe to the YouTube channel</li>
+                <li>Take a screenshot of your subscription</li>
+                <li>Send the proof via WhatsApp</li>
+              </ol>
+            </div>
+            <a href="https://www.youtube.com/@NiksonYT?sub_confirmation=1" target="_blank" class="btn-offer">Visit
+              Channel</a>
+          </div>
+
+          <div class="offer-card">
+            <div class="offer-icon facebook"></div>
+            <h3>Follow & Review on Facebook</h3>
+            <div class="reward-badge">50 Credits</div>
+            <p>Follow my Facebook page and write a good review to earn 50 free credits!</p>
+            <div class="how-to">
+              <h4>How to claim:</h4>
+              <ol>
+                <li>Follow my Facebook page</li>
+                <li>Write a positive review</li>
+                <li>Take a screenshot of your review</li>
+                <li>Send the proof via WhatsApp</li>
+              </ol>
+            </div>
+            <a href="https://www.facebook.com/Nikson2.0" target="_blank" class="btn-offer">Visit Page</a>
+          </div>
+
+          <div class="whatsapp-section">
+            <p>Send your proof to claim credits:</p>
+            <a href="https://wa.link/9xev28" target="_blank" class="btn-whatsapp">Send Proof via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT TAB -->
+      <div id="about" class="tab-content">
+        <div class="about-container">
+          <h2>About MailHunter</h2>
+          <p>MailHunter is a powerful lead generation tool designed to help you find emails from social platforms with
+            ease.</p>
+          <p>Version 1.0</p>
+          <p class="dev-name">Developed by Nikson2.0</p>
+
+          <div class="about-links" style="margin-top: 20px;">
+            <a href="https://wa.link/bqsxqb" target="_blank" class="btn-offer">Contact Support</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>Made with ❤️ by Nikson2.0 © 2025 MailHunter.</p>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
